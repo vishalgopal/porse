@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private iab:InAppBrowser) {
+    const options : InAppBrowserOptions = {
+      location : 'no', 
+      toolbar : 'no',
+      zoom : 'no'
+    };
+  this.iab.create('https://demo.digit9.co.in/porse/public/login','_self',options);
+  }
 
+  
 }
